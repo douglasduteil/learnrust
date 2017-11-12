@@ -13,8 +13,8 @@ before_script: 'cargo build'
 
 script:
   '
-  cd workshopper && cargo test && cd - &&
-  cargo test
+  echo "missing Travis script !" &&
+  exit 1
   '
 
 jobs:
@@ -23,11 +23,43 @@ jobs:
     #
 
     - stage: Test
+    #
       rust: stable
+      script: sh ./.travis/test.sh
     -
       rust: beta
+      script: sh ./.travis/test.sh
     -
       rust: nightly
+      script: sh ./.travis/test.sh
+
+    #
+
+    - stage: Build
+    #
+      env: TARGET=i686-apple-darwin
+      script: sh ./.travis/build.sh
+    -
+      env: TARGET=i686-pc-windows-gnu
+      script: sh ./.travis/build.sh
+    -
+      env: TARGET=i686-pc-windows-msvc
+      script: sh ./.travis/build.sh
+    -
+      env: TARGET=i686-unknown-linux-gnu
+      script: sh ./.travis/build.sh
+    -
+      env: TARGET=x86_64-apple-darwin
+      script: sh ./.travis/build.sh
+    -
+      env: TARGET=x86_64-pc-windows-gnu
+      script: sh ./.travis/build.sh
+    -
+      env: TARGET=x86_64-pc-windows-msvc
+      script: sh ./.travis/build.sh
+    -
+      env: TARGET=x86_64-unknown-linux-gnu
+      script: sh ./.travis/build.sh
 
     #
 
