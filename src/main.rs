@@ -9,12 +9,9 @@ include!(concat!(env!("OUT_DIR"), "/exercises.rs"));
 fn main() {
   let exercises = includedir_filenames_to_vec_string(FILES.file_names());
 
-  // let exercises = file_names_to_exercices(&file_names);
-  // assert_eq!(exercises, ["01_hello-world", "02_hello-you"]);
-
   let mut workshop = Workshopper::new(WorkshopperOptions {
     title: "~ Wanna learn Rust ? ~",
-    subtitle: "~ Here is some basic exercices ~",
+    subtitle: "~ Here is some basic exercises ~",
     exercises: exercises,
   });
 
