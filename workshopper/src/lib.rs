@@ -73,11 +73,3 @@ pub fn get_exercice_titles (file_names: &Vec<String>) -> Vec<String> {
 
   titles
 }
-
-#[cfg(test)]
-mod tests {
-  #[test]
-  fn it_works() {
-    assert_eq!(2 + 2, 4);
-  }
-}
