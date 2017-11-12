@@ -38,27 +38,38 @@ jobs:
     - stage: Build
     #
       env: TARGET=i686-apple-darwin
+      os: osx
+
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
     -
       env: TARGET=i686-pc-windows-gnu
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
     -
       env: TARGET=i686-pc-windows-msvc
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
     -
       env: TARGET=i686-unknown-linux-gnu
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
     -
       env: TARGET=x86_64-apple-darwin
+      os: osx
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
     -
       env: TARGET=x86_64-pc-windows-gnu
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
     -
       env: TARGET=x86_64-pc-windows-msvc
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
     -
       env: TARGET=x86_64-unknown-linux-gnu
+      before_script: 'rustup target install $TARGET'
       script: sh ./.travis/build.sh
 
     #
