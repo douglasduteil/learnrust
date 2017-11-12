@@ -1,11 +1,12 @@
 extern crate cursive;
 
 use cursive::{Cursive};
-use cursive::views::Dialog;
+use cursive::views::{Dialog, LinearLayout, SelectView, TextView};
 
 pub struct WorkshopperOptions {
   pub title: &'static str,
   pub subtitle: &'static str,
+  pub exercises: Vec<String>,
 }
 
 pub struct Workshopper {
@@ -26,6 +27,9 @@ impl Workshopper {
   ///   WorkshopperOptions {
   ///     title: "My workshop",
   ///     subtitle: "To learn sth",
+  ///     exercises: vec![
+  ///       "exercises/hello_world/problem.md".to_string()
+  ///     ],
   ///   }
   /// )
   /// # ;
@@ -38,8 +42,22 @@ impl Workshopper {
   }
 
   pub fn run(&mut self) {
-    let dialog = Dialog::text(self.options.subtitle)
-      .title(self.options.title);
+    let titles = get_exercice_titles(&self.options.exercises);
+
+    let mut select = SelectView::new();
+
+    for s in &titles {
+      let strText: &str = &s;
+      select.add_item_str(strText);
+    }
+
+    let subtitle = TextView::new(self.options.subtitle);
+    let dialog = Dialog::around(
+      LinearLayout::vertical()
+        .child(subtitle)
+        .child(select)
+    )
+    .title(self.options.title);
 
     self.siv
       .add_layer(dialog)
@@ -51,6 +69,12 @@ impl Workshopper {
 
 pub fn lol(x: i32) -> i32 {
   x + 1
+}
+
+pub fn get_exercice_titles (file_names: &Vec<String>) -> Vec<String> {
+  file_names.into_iter()
+    .map(|x| String::from(x.split('/').nth(1).unwrap()))
+    .collect()
 }
 
 #[cfg(test)]
