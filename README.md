@@ -1,5 +1,8 @@
 # learnrust
 
+[![Build Status](https://travis-ci.org/douglasduteil/learnrust.svg?branch=master)](https://travis-ci.org/douglasduteil/learnrust)
+
+
 [![Join the chat at https://gitter.im/workshopper/learnrust](https://badges.gitter.im/workshopper/learnrust.svg)](https://gitter.im/workshopper/learnrust?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 **An intro to Rust via a set of self-guided workshops.**
