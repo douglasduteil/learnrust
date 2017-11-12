@@ -8,3 +8,27 @@ git:
 rust: stable
 
 cache: cargo
+
+before_script: 'cargo build'
+
+script:
+  '
+  cd workshopper && cargo test && cd - &&
+  cargo test
+  '
+
+jobs:
+  include:
+
+    #
+
+    - stage: Test
+      rust: stable
+    -
+      rust: beta
+    -
+      rust: nightly
+
+    #
+
+  fast_finish: true
