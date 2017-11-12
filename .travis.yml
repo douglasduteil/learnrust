@@ -1,0 +1,8 @@
+---
+dist: trusty
+language: rust
+sudo: false
+git:
+  depth: 5
+
+rust: stable
