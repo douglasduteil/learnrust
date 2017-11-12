@@ -5,6 +5,7 @@ use cursive::views::Dialog;
 
 pub struct WorkshopperOptions {
   pub title: &'static str,
+  pub subtitle: &'static str,
 }
 
 pub struct Workshopper {
@@ -23,7 +24,8 @@ impl Workshopper {
   /// # use workshopper::{Workshopper, WorkshopperOptions};
   /// let workshop = Workshopper::new(
   ///   WorkshopperOptions {
-  ///     title: "My workshop"
+  ///     title: "My workshop",
+  ///     subtitle: "To learn sth",
   ///   }
   /// )
   /// # ;
@@ -36,7 +38,7 @@ impl Workshopper {
   }
 
   pub fn run(&mut self) {
-    let dialog = Dialog::text("Did you do the thing?")
+    let dialog = Dialog::text(self.options.subtitle)
       .title(self.options.title);
 
     self.siv

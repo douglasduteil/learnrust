@@ -13,6 +13,7 @@ fn main() {
 
   let mut workshop = Workshopper::new(WorkshopperOptions {
     title: "~ Wanna learn Rust ? ~",
+    subtitle: "~ Here is some basic exercices ~",
   });
 
   workshop.run();
