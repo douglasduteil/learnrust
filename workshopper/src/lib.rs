@@ -45,7 +45,6 @@ impl Workshopper {
     let titles = get_exercice_titles(&self.options.exercises);
 
     let mut select = SelectView::new();
-
     select.add_all_str(titles);
 
     let subtitle = TextView::new(self.options.subtitle);
@@ -64,14 +63,15 @@ impl Workshopper {
   }
 }
 
-pub fn lol(x: i32) -> i32 {
-  x + 1
-}
-
 pub fn get_exercice_titles (file_names: &Vec<String>) -> Vec<String> {
-  file_names.into_iter()
+  let mut titles: Vec<String> = file_names.into_iter()
     .map(|x| String::from(x.split('/').nth(1).unwrap()))
     .collect()
+  ;
+
+  titles.dedup();
+
+  titles
 }
 
 #[cfg(test)]
