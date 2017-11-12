@@ -5,7 +5,7 @@ use includedir_codegen::Compression;
 fn main() {
   let mut cg = includedir_codegen::start("FILES");
 
-  cg.dir("exercies", Compression::Gzip)
-    .build("exercies.rs")
+  cg.dir("exercises", Compression::Gzip)
+    .build("exercises.rs")
     .unwrap();
 }
