@@ -6,3 +6,5 @@ git:
   depth: 5
 
 rust: stable
+
+cache: cargo
