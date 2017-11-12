@@ -46,10 +46,7 @@ impl Workshopper {
 
     let mut select = SelectView::new();
 
-    for s in &titles {
-      let strText: &str = &s;
-      select.add_item_str(strText);
-    }
+    select.add_all_str(titles);
 
     let subtitle = TextView::new(self.options.subtitle);
     let dialog = Dialog::around(
