@@ -1,0 +1,7 @@
+[package]
+name = "workshopper"
+version = "0.1.0"
+authors = ["Douglas Duteil <douglasduteil@gmail.com>"]
+
+[dependencies]
+cursive = "0"

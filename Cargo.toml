@@ -1,0 +1,17 @@
+[package]
+name = "learnrust1"
+version = "0.1.0"
+authors = ["Douglas Duteil <douglasduteil@gmail.com>"]
+
+build = "build.rs"
+include = ["exercices"]
+
+[dependencies]
+workshopper = { path = "workshopper" }
+phf = "0.7.12"
+includedir = "0.2.0"
+
+[build-dependencies]
+includedir_codegen = "0.2.0"
+
+[workspace]
