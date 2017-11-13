@@ -8,6 +8,7 @@ git:
 addons:
   apt:
     packages:
+      - mingw-w64
       - libc6-dev-i386
       - gcc-multilib
 
