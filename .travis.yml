@@ -5,6 +5,12 @@ sudo: false
 git:
   depth: 5
 
+addons:
+  apt:
+    packages:
+      - libc6-dev-i386
+      - gcc-multilib
+
 rust: stable
 
 cache: cargo
