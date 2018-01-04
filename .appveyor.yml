@@ -28,7 +28,7 @@ test_script:
   - cargo build --target %TARGET%
   - cd workshopper
   - cargo test
-  - cd -
+  - cd ..
   - cargo test
   - cargo build --target %TARGET% --release
 
