@@ -42,14 +42,6 @@ jobs:
       before_script: 'rustup target add $TARGET'
       script: sh ./.travis/build.sh
     -
-      env: TARGET=i686-pc-windows-gnu
-      before_script: 'rustup target add $TARGET'
-      script: sh ./.travis/build.sh
-    -
-      env: TARGET=i686-pc-windows-msvc
-      before_script: 'rustup target add $TARGET'
-      script: sh ./.travis/build.sh
-    -
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
       script: sh ./.travis/build.sh

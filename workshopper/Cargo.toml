@@ -4,4 +4,8 @@ version = "0.1.0"
 authors = ["Douglas Duteil <douglasduteil@gmail.com>"]
 
 [dependencies]
-cursive = "0"
+
+[dependencies.cursive]
+version = "0"
+default-features = false
+features = ["pancurses"]
