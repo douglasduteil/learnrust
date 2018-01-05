@@ -9,10 +9,10 @@ environment:
 
   # 32/64-bit MinGW builds.
   - CHANNEL: nightly
-    MINGW: mingw32
+    MINGW: mingw64
     TARGET: x86_64-pc-windows-gnu
   - CHANNEL: nightly
-    MINGW: mingw64
+    MINGW: mingw32
     TARGET: i686-pc-windows-gnu
 
 install:
