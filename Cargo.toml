@@ -1,10 +1,17 @@
 [package]
-name = "learnrust1"
+name = "_douglasduteil_learnrust"
 version = "0.1.0"
 authors = ["Douglas Duteil <douglasduteil@gmail.com>"]
-
 build = "build.rs"
+description = "Learning Rust"
 include = ["exercices"]
+keywords = ["git", "log", "changelog", "parser", "parse"]
+license = "WTFPL"
+repository = "https://github.com/douglasduteil/learnrust"
+
+[[bin]]
+name = "learnrust"
+path = "src/main.rs"
 
 [dependencies]
 workshopper = { path = "workshopper" }
@@ -13,5 +20,8 @@ includedir = "0.2.0"
 
 [build-dependencies]
 includedir_codegen = "0.2.0"
+
+[dev-dependencies]
+clog-cli = "0.9.3"
 
 [workspace]

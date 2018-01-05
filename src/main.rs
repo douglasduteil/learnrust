@@ -1,6 +1,6 @@
-extern crate workshopper;
 extern crate includedir;
 extern crate phf;
+extern crate workshopper;
 
 use workshopper::{Workshopper, WorkshopperOptions};
 
