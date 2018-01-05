@@ -21,29 +21,29 @@ jobs:
 
     #
 
-    # - stage: Test
-    # #
-    #   rust: stable
-    #   before_script: cargo build --verbose
-    #   script: sh ./.travis/test.sh
-    # -
-    #   rust: beta
-    #   before_script: cargo build --verbose
-    #   script: sh ./.travis/test.sh
-    # -
-    #   rust: nightly
-    #   before_script: cargo build --verbose
-    #   script: sh ./.travis/test.sh
+    - stage: Test
+    #
+      rust: stable
+      before_script: cargo build --verbose
+      script: sh ./.travis/test.sh
+    -
+      rust: beta
+      before_script: cargo build --verbose
+      script: sh ./.travis/test.sh
+    -
+      rust: nightly
+      before_script: cargo build --verbose
+      script: sh ./.travis/test.sh
 
     #
 
     - stage: Build
     #
-      # env: TARGET=i686-apple-darwin
-      # os: osx
-      # before_script: 'rustup target add $TARGET'
-      # script: cargo build --target $TARGET --release --verbose
-    # -
+      env: TARGET=i686-apple-darwin
+      os: osx
+      before_script: 'rustup target add $TARGET'
+      script: cargo build --target $TARGET --release --verbose
+    -
       addons:
         apt:
           packages:
@@ -53,18 +53,19 @@ jobs:
             # Solve fatal error: sys/cdefs.h: No such file or directory
             - libc6-dev-i386
             - libx32gcc-4.8-dev
+            # Solve incompatible gcc versions
             - gcc-multilib 
             - g++-multilib
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
       script: cargo build --target $TARGET --release --verbose
-    # -
-    #   env: TARGET=x86_64-apple-darwin
-    #   os: osx
-    #   script: cargo build --target $TARGET --release --verbose
-    # -
-    #   env: TARGET=x86_64-unknown-linux-gnu
-    #   script: cargo build --target $TARGET --release --verbose
+    -
+      env: TARGET=x86_64-apple-darwin
+      os: osx
+      script: cargo build --target $TARGET --release --verbose
+    -
+      env: TARGET=x86_64-unknown-linux-gnu
+      script: cargo build --target $TARGET --release --verbose
 
     #
 
