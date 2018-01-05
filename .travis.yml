@@ -16,8 +16,6 @@ addons:
     packages:
     - libncursesw5-dev
 
-before_script: 'cargo build'
-
 script:
   '
   echo "missing Travis script !" &&
@@ -32,12 +30,15 @@ jobs:
     - stage: Test
     #
       rust: stable
+      before_script: cargo build --verbose
       script: sh ./.travis/test.sh
     -
       rust: beta
+      before_script: cargo build --verbose
       script: sh ./.travis/test.sh
     -
       rust: nightly
+      before_script: cargo build --verbose
       script: sh ./.travis/test.sh
 
     #
@@ -47,22 +48,19 @@ jobs:
       env: TARGET=i686-apple-darwin
       os: osx
       before_script: 'rustup target add $TARGET'
-      script: *build
+      script: cargo build --target $TARGET --release --verbose
     -
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
-      script: *build
+      script: cargo build --target $TARGET --release --verbose
     -
       env: TARGET=x86_64-apple-darwin
       os: osx
-      script: *build
+      script: cargo build --target $TARGET --release --verbose
     -
       env: TARGET=x86_64-unknown-linux-gnu
-      script: *build
+      script: cargo build --target $TARGET --release --verbose
 
     #
 
   fast_finish: true
-
-aliases:
-  - &build 'cargo build --target $TARGET; cargo build --target $TARGET --release'

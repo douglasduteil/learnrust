@@ -3,7 +3,7 @@
 set -exu pipefail
 
 cd workshopper
-cargo test
+cargo test --verbose
 
 cd -
-cargo test
+cargo test --verbose
