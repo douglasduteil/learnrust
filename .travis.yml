@@ -8,13 +8,7 @@ git:
 rust: stable
 
 cache:
-  apt: true
   cargo: true
-
-addons:
-  apt:
-    packages:
-    - libncursesw5-dev
 
 script:
   '
@@ -50,6 +44,10 @@ jobs:
       before_script: 'rustup target add $TARGET'
       script: cargo build --target $TARGET --release --verbose
     -
+      addons:
+        apt:
+          packages:
+            - libc6-dev-i386
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
       script: cargo build --target $TARGET --release --verbose
