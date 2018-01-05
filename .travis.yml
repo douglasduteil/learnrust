@@ -48,7 +48,8 @@ jobs:
         apt:
           packages:
             # Solve fatal error: sys/cdefs.h: No such file or directory
-            - libc6
+            - libx32gcc-4.8-dev
+            - lib32ncurses5-dev
             - libc6-dev-i386
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
