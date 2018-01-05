@@ -8,15 +8,15 @@ git:
 rust: stable
 
 cache:
-  cargo: true
   apt: true
+  cargo: true
 
 addons:
   apt:
     packages:
     - g++-multilib
     - gcc-multilib
-    
+
 before_script: 'cargo build'
 
 script:
@@ -50,7 +50,7 @@ jobs:
       before_script: 'rustup target add $TARGET'
       script: sh ./.travis/build.sh
     -
-      env: TARGET=i686-unknown-linux-gnu CFLAGS='-m32'
+      env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
       script: sh ./.travis/build.sh
     -
