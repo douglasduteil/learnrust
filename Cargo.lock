@@ -1,6 +1,6 @@
 [[package]]
 name = "_douglasduteil_learnrust"
-version = "0.1.2"
+version = "0.1.3"
 dependencies = [
  "clog-cli 0.9.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "includedir 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
