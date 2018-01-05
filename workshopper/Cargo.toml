@@ -4,6 +4,7 @@ version = "0.1.0"
 authors = ["Douglas Duteil <douglasduteil@gmail.com>"]
 
 [dependencies]
+pulldown-cmark = "0.1.0"
 
 [dependencies.cursive]
 version = "0"
