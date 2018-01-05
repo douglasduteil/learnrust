@@ -47,10 +47,12 @@ jobs:
       addons:
         apt:
           packages:
-            # Solve fatal error: sys/cdefs.h: No such file or directory
-            - libx32gcc-4.8-dev
+            # Solve missing ncurses5, ncursesw5
             - lib32ncurses5-dev
+            - lib32ncursesw5-dev
+            # Solve fatal error: sys/cdefs.h: No such file or directory
             - libc6-dev-i386
+            - libx32gcc-4.8-dev
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
       script: cargo build --target $TARGET --release --verbose
