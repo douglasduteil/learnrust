@@ -1,6 +1,6 @@
 [package]
 name = "_douglasduteil_learnrust"
-version = "0.1.5"
+version = "0.1.6"
 authors = ["Douglas Duteil <douglasduteil@gmail.com>"]
 build = "build.rs"
 description = "Learning Rust"

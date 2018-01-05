@@ -1,7 +1,7 @@
 extern crate cursive;
 
-use cursive::{Cursive};
-use cursive::views::{Dialog, LinearLayout, SelectView, TextView};
+use cursive::Cursive;
+use cursive::views::{Button, Dialog, LinearLayout, SelectView, TextView};
 
 pub struct WorkshopperOptions {
   pub title: &'static str,
@@ -15,7 +15,6 @@ pub struct Workshopper {
 }
 
 impl Workshopper {
-
   /// Creates a new instance of a Workshopper
   ///
   /// # Examples
@@ -37,7 +36,7 @@ impl Workshopper {
   pub fn new(options: WorkshopperOptions) -> Self {
     Workshopper {
       options: options,
-      siv: Cursive::new()
+      siv: Cursive::new(),
     }
   }
 
@@ -48,26 +47,28 @@ impl Workshopper {
     select.add_all_str(titles);
 
     let subtitle = TextView::new(self.options.subtitle);
+    let separator = TextView::new("===");
     let dialog = Dialog::around(
       LinearLayout::vertical()
         .child(subtitle)
+        .child(TextView::new("==="))
         .child(select)
-    )
-    .title(self.options.title);
+        .child(separator)
+        .child(Button::new("Help", |s| s.quit()))
+        .child(Button::new("Exit", |s| s.quit())),
+    ).title(self.options.title);
 
-    self.siv
-      .add_layer(dialog)
-    ;
+    self.siv.add_layer(dialog);
 
     self.siv.run();
   }
 }
 
-pub fn get_exercice_titles (file_names: &Vec<String>) -> Vec<String> {
-  let mut titles: Vec<String> = file_names.into_iter()
+pub fn get_exercice_titles(file_names: &Vec<String>) -> Vec<String> {
+  let mut titles: Vec<String> = file_names
+    .into_iter()
     .map(|x| String::from(x.split('/').nth(1).unwrap()))
-    .collect()
-  ;
+    .collect();
 
   titles.dedup();
 
