@@ -12,6 +12,8 @@ repository = "https://github.com/douglasduteil/learnrust"
 [[bin]]
 name = "learnrust"
 path = "src/main.rs"
+test = false
+doc = false
 
 [dependencies]
 workshopper = { path = "workshopper" }

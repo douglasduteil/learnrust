@@ -10,6 +10,11 @@ rust: stable
 cache:
   cargo: true
 
+before_script:
+  - '
+    git config user.name "Deployment Bot (from Travis CI)" &&
+    git config user.email "deploy@travis-ci.org"
+    '
 script:
   '
   echo "missing Travis script !" &&
@@ -42,7 +47,8 @@ jobs:
       env: TARGET=i686-apple-darwin
       os: osx
       before_script: 'rustup target add $TARGET'
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
+      deploy: *_deploy_provider
     -
       addons:
         apt:
@@ -58,15 +64,27 @@ jobs:
             - g++-multilib
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
+      deploy: *_deploy_provider
     -
       env: TARGET=x86_64-apple-darwin
       os: osx
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
+      deploy: *_deploy_provider
     -
       env: TARGET=x86_64-unknown-linux-gnu
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
+      deploy: *_deploy_provider
 
     #
 
   fast_finish: true
+
+
+_deploy_provider: &_deploy_provider
+  provider: releases
+  api_key: $GITHUB_TOKEN
+  file: $TRAVIS_BUILD_DIR/releases/*
+  skip_cleanup: true
+  on:
+    tags: true
