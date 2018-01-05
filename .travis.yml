@@ -14,8 +14,7 @@ cache:
 addons:
   apt:
     packages:
-    - g++-multilib
-    - gcc-multilib
+    - libncursesw5-dev
 
 before_script: 'cargo build'
 
