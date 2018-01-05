@@ -47,19 +47,22 @@ jobs:
       env: TARGET=i686-apple-darwin
       os: osx
       before_script: 'rustup target add $TARGET'
-      script: sh ./.travis/build.sh
+      script: *build
     -
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
-      script: sh ./.travis/build.sh
+      script: *build
     -
       env: TARGET=x86_64-apple-darwin
       os: osx
-      script: sh ./.travis/build.sh
+      script: *build
     -
       env: TARGET=x86_64-unknown-linux-gnu
-      script: sh ./.travis/build.sh
+      script: *build
 
     #
 
   fast_finish: true
+
+aliases:
+  - &build 'cargo build --target $TARGET; cargo build --target $TARGET --release'
