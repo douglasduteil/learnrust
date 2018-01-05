@@ -50,7 +50,7 @@ jobs:
       env: TARGET=i686-apple-darwin
       os: osx
       before_script: 'rustup target add $TARGET'
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
     -
       addons:
         apt:
@@ -66,14 +66,14 @@ jobs:
             - g++-multilib
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
     -
       env: TARGET=x86_64-apple-darwin
       os: osx
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
     -
       env: TARGET=x86_64-unknown-linux-gnu
-      script: cargo build --target $TARGET --release --verbose
+      script: sh ./.travis/build.sh $TARGET
 
     #
 
