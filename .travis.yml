@@ -47,7 +47,9 @@ jobs:
       addons:
         apt:
           packages:
-            - libc6-dev-i386
+            # Solve fatal error: sys/cdefs.h: No such file or directory
+            - libc6 
+            - libc6-dev
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
       script: cargo build --target $TARGET --release --verbose
