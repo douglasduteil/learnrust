@@ -1,6 +1,6 @@
 [[package]]
 name = "_douglasduteil_learnrust"
-version = "0.1.13"
+version = "0.1.14"
 dependencies = [
  "clog-cli 0.9.3 (registry+https://github.com/rust-lang/crates.io-index)",
  "cursive 0.7.2 (registry+https://github.com/rust-lang/crates.io-index)",
@@ -133,11 +133,6 @@ dependencies = [
 [[package]]
 name = "gcc"
 version = "0.3.54"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-
-[[package]]
-name = "getopts"
-version = "0.2.15"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 
 [[package]]
@@ -349,7 +344,6 @@ version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 dependencies = [
  "bitflags 0.9.1 (registry+https://github.com/rust-lang/crates.io-index)",
- "getopts 0.2.15 (registry+https://github.com/rust-lang/crates.io-index)",
 ]
 
 [[package]]
@@ -574,7 +568,6 @@ dependencies = [
 "checksum fuchsia-zircon 0.2.1 (registry+https://github.com/rust-lang/crates.io-index)" = "f6c0581a4e363262e52b87f59ee2afe3415361c6ec35e665924eb08afe8ff159"
 "checksum fuchsia-zircon-sys 0.2.0 (registry+https://github.com/rust-lang/crates.io-index)" = "43f3795b4bae048dc6123a6b972cadde2e676f9ded08aef6bb77f5f157684a82"
 "checksum gcc 0.3.54 (registry+https://github.com/rust-lang/crates.io-index)" = "5e33ec290da0d127825013597dbdfc28bee4964690c7ce1166cbc2a7bd08b1bb"
-"checksum getopts 0.2.15 (registry+https://github.com/rust-lang/crates.io-index)" = "65922871abd2f101a2eb0eaebadc66668e54a87ad9c3dd82520b5f86ede5eff9"
 "checksum includedir 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "ed470a2a5c0afe4587796a886aa185fcef159feaefd8c4f40d85423aeeec4a3a"
 "checksum includedir_codegen 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "4cb2bb86e79496ab481fc7865ce8c2960cf1eb40cc1411524ce67fce54f3c95e"
 "checksum kernel32-sys 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)" = "7507624b29483431c0ba2d82aece8ca6cdba9382bff4ddd0f7490560c056098d"
