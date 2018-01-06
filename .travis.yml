@@ -11,13 +11,12 @@ cache:
   cargo: true
 
 before_script:
-  git config user.name "Deployment Bot (from Travis CI)"
-  git config user.email "deploy@travis-ci.org"
-  
-script: sh -xc "
-  echo "missing Travis script !"
-  exit 1
-  ;"
+  git config user.name "Deployment Bot (from Travis CI)";
+  git config user.email "deploy@travis-ci.org";
+
+script: 
+  echo "missing Travis script !";
+  exit 1;
 
 jobs:
   include:
@@ -77,13 +76,12 @@ jobs:
 
   fast_finish: true
 
-before_deploy: sh -xc "
-  export name="learnrust-$TRAVIS_TAG-stable-$TARGET"
-  mkdir $name
-  cp target/$TARGET/release/learnrust $name/
-  cp README.md LICENSE $name/
-  tar Jcvf $name.tar.xz $name
-  ;"
+before_deploy: 
+  export name="learnrust-$TRAVIS_TAG-stable-$TARGET";
+  mkdir $name;
+  cp target/$TARGET/release/learnrust $name/;
+  cp README.md LICENSE $name/;
+  tar Jcvf $name.tar.xz $name;
 
 deploy:
   provider: releases
