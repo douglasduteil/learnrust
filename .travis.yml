@@ -80,7 +80,7 @@ jobs:
   fast_finish: true
 
 before_deploy:
-  - export RELEASE_FILE=$(ls $TRAVIS_BUILD_DIR/releases/*)
+  - export RELEASE_FILE=$(ls releases/*)
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
