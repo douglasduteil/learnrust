@@ -10,16 +10,14 @@ rust: stable
 cache:
   cargo: true
 
-before_script:
-  - '
-    git config user.name "Deployment Bot (from Travis CI)" &&
-    git config user.email "deploy@travis-ci.org"
-    '
-script:
-  '
-  echo "missing Travis script !" &&
+before_script: sh -xc "
+  git config user.name "Deployment Bot (from Travis CI)"
+  git config user.email "deploy@travis-ci.org"
+;"
+script: sh -xc "
+  echo "missing Travis script !"
   exit 1
-  '
+;"
 
 jobs:
   include:
@@ -50,7 +48,7 @@ jobs:
       env: TARGET=i686-apple-darwin
       os: osx
       before_script: 'rustup target add $TARGET'
-      script: sh ./.travis/build.sh $TARGET
+      script: cargo build --target $TARGET --release --verbose
     -
       addons:
         apt:
@@ -66,25 +64,31 @@ jobs:
             - g++-multilib
       env: TARGET=i686-unknown-linux-gnu
       before_script: 'rustup target add $TARGET'
-      script: sh ./.travis/build.sh $TARGET
+      script: cargo build --target $TARGET --release --verbose
     -
       env: TARGET=x86_64-apple-darwin
       os: osx
-      script: sh ./.travis/build.sh $TARGET
+      script: cargo build --target $TARGET --release --verbose
     -
       env: TARGET=x86_64-unknown-linux-gnu
-      script: sh ./.travis/build.sh $TARGET
+      script: cargo build --target $TARGET --release --verbose
 
     #
 
   fast_finish: true
 
-before_deploy:
-  - export RELEASE_FILE=$(ls releases/*)
+before_deploy: sh -xc "
+  export name="learnrust-$TRAVIS_TAG-stable-$TARGET"
+  mkdir $name
+  cp target/$TARGET/release/learnrust $name/
+  cp README.md LICENSE $name/
+  tar Jcvf $name.tar.xz $name
+;"
+
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  file: $RELEASE_FILE
+  file: $name
   skip_cleanup: true
   on:
     tags: true
