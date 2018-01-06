@@ -28,12 +28,12 @@ clone_depth: 1
 build: false
 
 test_script:
-  - cargo build --target %TARGET%
+  - cargo build --target %TARGET% --verbose
   - cd workshopper
-  - cargo test
+  - cargo test --verbose
   - cd ..
-  - cargo test
-  - cargo build --target %TARGET% --release
+  - cargo test --verbose
+  - cargo build --target %TARGET% --release --verbose
 
 cache:
   - C:\Users\appveyor\.cargo\registry
