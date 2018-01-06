@@ -50,7 +50,7 @@ before_deploy:
         Push-AppveyorArtifact "${NAME}.tar.xz"
 deploy:
   provider: GitHub
-  auth_token: %GITHUB_TOKEN%
+  auth_token: $(GITHUB_TOKEN)
   artifact: /.*\.tar.xz/
   on:
     appveyor_repo_tag: true
