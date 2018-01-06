@@ -10,10 +10,10 @@ rust: stable
 cache:
   cargo: true
 
-before_script: sh -xc "
+before_script:
   git config user.name "Deployment Bot (from Travis CI)"
   git config user.email "deploy@travis-ci.org"
-  ;"
+  
 script: sh -xc "
   echo "missing Travis script !"
   exit 1
