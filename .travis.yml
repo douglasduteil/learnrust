@@ -86,7 +86,7 @@ before_deploy:
 deploy:
   provider: releases
   api_key: $GITHUB_TOKEN
-  file: $name
+  file: $name.tar.xz
   skip_cleanup: true
   on:
     tags: true
